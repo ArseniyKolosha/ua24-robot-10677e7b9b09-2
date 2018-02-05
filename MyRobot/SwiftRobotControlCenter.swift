@@ -16,7 +16,7 @@ class SwiftRobotControlCenter: RobotControlCenter {
 	
 	//in this function change levelName
 	override func viewDidLoad() {
-		levelName = "L555H" // level name
+		levelName = "L1C" // level name
 		
 		super.viewDidLoad()
 		
@@ -27,16 +27,20 @@ class SwiftRobotControlCenter: RobotControlCenter {
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
 	  
+     
        
-       candyInCorners()
         
      
 	}
     
+    //Удвоить конфеты на том же месте L1C/L11C
+    
+    
+    
     //Печенки по углам мира с учётом неизвестного положения
     
     func candyInCorners() {
-        for _ in 0..<4 {
+        for _ in 0..<5 {
             moveToWallX()
             candyInCorner()
             turnRight()
@@ -51,9 +55,14 @@ class SwiftRobotControlCenter: RobotControlCenter {
     
     func candyInCorner() {
         if frontIsBlocked && leftIsBlocked {
+            if noCandyPresent {
             put()
         }
+      }
     }
+        
+    
+    
     
     //Разложить конфеты в шахматном порядке
     func doChessField() {
@@ -77,7 +86,6 @@ class SwiftRobotControlCenter: RobotControlCenter {
     }
         uTurnRight()
     }
-        
     
     func moveEvenNumbers() {
         while frontIsClear {
@@ -92,10 +100,6 @@ class SwiftRobotControlCenter: RobotControlCenter {
         uTurnLeft()
     }
     
- 
-    
-  
-    
     func uTurnRight() {
         turnRight()
         move()
@@ -108,10 +112,6 @@ class SwiftRobotControlCenter: RobotControlCenter {
         move()
         turnLeft()
     }
-    
-    
-    
-    
     
     
     
@@ -157,7 +157,6 @@ class SwiftRobotControlCenter: RobotControlCenter {
         }
         turnLeft()
     }
-    
     
     
     
