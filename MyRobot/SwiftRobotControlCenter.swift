@@ -16,7 +16,7 @@ class SwiftRobotControlCenter: RobotControlCenter {
 	
 	//in this function change levelName
 	override func viewDidLoad() {
-		levelName = "L22H" // level name
+		levelName = "L4H" // level name
 		
 		super.viewDidLoad()
 		
@@ -27,7 +27,21 @@ class SwiftRobotControlCenter: RobotControlCenter {
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
 	    
-       buildAllColumns()
+       moveOddNumbers()
+       moveEvenNumbers()
+        
+        moveOddNumbers()
+        moveEvenNumbers()
+        
+        moveOddNumbers()
+        moveEvenNumbers()
+        
+        moveOddNumbers()
+        moveEvenNumbers()
+        
+        moveOddNumbers()
+        moveEvenNumbers()
+        moveOddNumbers()
         
        
         
@@ -36,85 +50,36 @@ class SwiftRobotControlCenter: RobotControlCenter {
     
     
     //Разложить конфеты в шахматном порядке
-    
-    func moveChessEmpty() {
-        while frontIsClear {
-            moveA()
-            moveB()
-            
-        }
-        
-    }
-    
-    func moveChess() {
-        while frontIsClear {
-            moveA()
-            moveB()
-            
-        }
-        
-    }
-    
-    
-    func moveA() {
-        put()
-        if frontIsClear {
-            move()
-        }
-    }
-    
-    func moveB() {
-        if frontIsClear{
-            move()
-        }
-    }
-    
-    
-    
-   
-    
-    func doChessCandy() {
-        moveOddNumbers()
-        moveEvenNumbers()
-        
-        moveOddNumbers()
-        moveEvenNumbers()
-        
-        moveOddNumbers()
-        moveEvenNumbers()
-        
-        moveOddNumbers()
-        moveEvenNumbers()
-        
-        moveOddNumbers()
-        moveEvenNumbers()
-        
-        moveOddNumbers()
-        
-    }
-    
+  
     func moveOddNumbers() {
-        for _ in 0..<7 {
-            put()
-            move()
+        while frontIsClear {
             move()
             put()
+            move()
         }
-        if frontIsBlocked && rightIsBlocked {
-            turnLeft()
-        } else {
-            uTurnRight()
-        }
+        if rightIsBlocked && frontIsBlocked {
+        turnRight()
     }
+        uTurnRight()
+    }
+        
     
     func moveEvenNumbers() {
-        for _ in 0..<7 {
-            move()
+        while frontIsClear {
             put()
             move()
+            move()
+        }
+        put()
+        if leftIsBlocked && frontIsBlocked {
+            turnLeft()
         }
         uTurnLeft()
     }
+    
+ 
+    
+  
     
     func uTurnRight() {
         turnRight()
